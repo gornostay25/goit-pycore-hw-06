@@ -23,3 +23,15 @@ found_phone = john.find_phone("5555555555")
 print(f"{john.name}: {found_phone}")  # Виведення: 5555555555
 # Видалення запису Jane
 book.delete("Jane")
+
+# Check edit phone validation
+
+vasia_record = Record("Vasia")
+vasia_record.add_phone("1111111111")
+book.add_record(vasia_record)
+vasia = book.find("Vasia")
+print(vasia)
+try:
+    vasia.edit_phone("1111111111", "2")
+except ValueError as e:
+    print("Validation error:", e)
